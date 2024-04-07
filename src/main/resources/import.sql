@@ -1,0 +1,1 @@
+INSERT INTO model_peak(id, name, distance, checked) VALUES(99, 'Carrauntoohil', 1039, false)
