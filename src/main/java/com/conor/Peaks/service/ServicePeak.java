@@ -5,6 +5,8 @@ import com.conor.Peaks.repo.RepoPeak;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ServicePeak {
     @Autowired
@@ -21,12 +23,25 @@ public class ServicePeak {
         }
     }
 
-    public void checkedSummit(Long id){
+    public void checkedSummitTrue(Long id){
         try {
             repoPeak.changeCheckedToTrue(id);
         }
         catch (Exception e){
             throw new RuntimeException("Changing checked to true has failed: "+e.getMessage());
         }
+    }
+
+    public void checkedSummitFalse(Long id){
+        try {
+            repoPeak.changeCheckedToFalse(id);
+        }
+        catch (Exception e){
+            throw new RuntimeException("Changing checked to true has failed: "+e.getMessage());
+        }
+    }
+
+    public List<ModelPeak> displayAll(){
+        return repoPeak.findAll();
     }
 }
